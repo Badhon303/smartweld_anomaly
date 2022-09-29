@@ -374,8 +374,8 @@ io.on("connection", (client) => {
   })
 
   client.on("disconnect", () => {
-    // mqtt_client.unsubscribe("A1")
-    // mqtt_client.unsubscribe("A2")
+    mqtt_client.unsubscribe("A1")
+    mqtt_client.unsubscribe("A2")
     console.log("Client disconnected")
   })
 })
