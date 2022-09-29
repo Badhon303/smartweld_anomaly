@@ -1,92 +1,92 @@
 $(document).ready(function () {
   let incVal = 0
   let base_url = "http://129.213.115.181:3000"
-  let stream1ucl,
-    stream2ucl,
-    stream3ucl,
-    stream10ucl,
-    stream11ucl,
-    stream12ucl,
-    stream1lcl,
-    stream2lcl,
-    stream3lcl,
-    stream10lcl,
-    stream11lcl,
-    stream12lcl,
-    anomalySet = 0
+  // let stream1ucl,
+  //   stream2ucl,
+  //   stream3ucl,
+  //   stream10ucl,
+  //   stream11ucl,
+  //   stream12ucl,
+  //   stream1lcl,
+  //   stream2lcl,
+  //   stream3lcl,
+  //   stream10lcl,
+  //   stream11lcl,
+  //   stream12lcl,
+  //   anomalySet = 0
 
-  try {
-    $.ajax({
-      url: "http://13.229.127.60:5000/features",
-      type: "GET",
-      dataType: "json", // added data type
-      async: false,
-      success: function (res) {
-        // high_weld_cur_threshold = Number(res.data[0].high_weld_cur_threshold)
-        for (let i = 0; i < res.length; i++) {
-          if (res[i].id == 1) {
-            let id = i
-            stream1lcl = Number(res[id].lcl)
-            stream1ucl = Number(res[id].ucl)
-          }
-          if (res[i].id == 2) {
-            let id = i
-            stream2lcl = Number(res[id].lcl)
-            stream2ucl = Number(res[id].ucl)
-          }
-          if (res[i].id == 3) {
-            stream3lcl = Number(res[i].lcl)
-            stream3ucl = Number(res[i].ucl)
-          }
-          if (res[i].id == 4) {
-            stream10lcl = Number(res[i].lcl)
-            stream10ucl = Number(res[i].ucl)
-          }
-          if (res[i].id == 5) {
-            stream11lcl = Number(res[i].lcl)
-            stream11ucl = Number(res[i].ucl)
-          }
-          if (res[i].id == 6) {
-            stream12lcl = Number(res[i].lcl)
-            stream12ucl = Number(res[i].ucl)
-          }
-          if (res[i].id == 13) {
-            anomalySet = Number(res[i].anomaly_score)
-          }
-        }
-        // stream1lcl = Number(res[0].lcl)
-        // stream1ucl = Number(res[0].ucl)
-        // stream2lcl = Number(res[1].lcl)
-        // stream2ucl = Number(res[1].ucl)
-        // stream3lcl = Number(res[2].lcl)
-        // stream3ucl = Number(res[2].ucl)
-        // stream10lcl = Number(res[3].lcl)
-        // stream10ucl = Number(res[3].ucl)
-        // stream11lcl = Number(res[4].lcl)
-        // stream11ucl = Number(res[4].ucl)
-        // stream12lcl = Number(res[5].lcl)
-        // stream12ucl = Number(res[5].ucl)
+  // try {
+  //   $.ajax({
+  //     url: "http://13.229.127.60:5000/features",
+  //     type: "GET",
+  //     dataType: "json", // added data type
+  //     async: false,
+  //     success: function (res) {
+  //       // high_weld_cur_threshold = Number(res.data[0].high_weld_cur_threshold)
+  //       for (let i = 0; i < res.length; i++) {
+  //         if (res[i].id == 1) {
+  //           let id = i
+  //           stream1lcl = Number(res[id].lcl)
+  //           stream1ucl = Number(res[id].ucl)
+  //         }
+  //         if (res[i].id == 2) {
+  //           let id = i
+  //           stream2lcl = Number(res[id].lcl)
+  //           stream2ucl = Number(res[id].ucl)
+  //         }
+  //         if (res[i].id == 3) {
+  //           stream3lcl = Number(res[i].lcl)
+  //           stream3ucl = Number(res[i].ucl)
+  //         }
+  //         if (res[i].id == 4) {
+  //           stream10lcl = Number(res[i].lcl)
+  //           stream10ucl = Number(res[i].ucl)
+  //         }
+  //         if (res[i].id == 5) {
+  //           stream11lcl = Number(res[i].lcl)
+  //           stream11ucl = Number(res[i].ucl)
+  //         }
+  //         if (res[i].id == 6) {
+  //           stream12lcl = Number(res[i].lcl)
+  //           stream12ucl = Number(res[i].ucl)
+  //         }
+  //         if (res[i].id == 13) {
+  //           anomalySet = Number(res[i].anomaly_score)
+  //         }
+  //       }
+  //       // stream1lcl = Number(res[0].lcl)
+  //       // stream1ucl = Number(res[0].ucl)
+  //       // stream2lcl = Number(res[1].lcl)
+  //       // stream2ucl = Number(res[1].ucl)
+  //       // stream3lcl = Number(res[2].lcl)
+  //       // stream3ucl = Number(res[2].ucl)
+  //       // stream10lcl = Number(res[3].lcl)
+  //       // stream10ucl = Number(res[3].ucl)
+  //       // stream11lcl = Number(res[4].lcl)
+  //       // stream11ucl = Number(res[4].ucl)
+  //       // stream12lcl = Number(res[5].lcl)
+  //       // stream12ucl = Number(res[5].ucl)
 
-        // console.log(stream1ucl)
-      },
-    })
-  } catch {
-    console.log("ucl lcl api not working")
-  }
+  //       // console.log(stream1ucl)
+  //     },
+  //   })
+  // } catch {
+  //   console.log("ucl lcl api not working")
+  // }
 
-  $("#validationCustom01").val(stream1lcl)
-  $("#validationCustom02").val(stream1ucl)
-  $("#validationCustom03").val(stream2lcl)
-  $("#validationCustom04").val(stream2ucl)
-  $("#validationCustom05").val(stream3lcl)
-  $("#validationCustom06").val(stream3ucl)
-  $("#validationCustom07").val(stream10lcl)
-  $("#validationCustom08").val(stream10ucl)
-  $("#validationCustom09").val(stream11lcl)
-  $("#validationCustom10").val(stream11ucl)
-  $("#validationCustom11").val(stream12lcl)
-  $("#validationCustom12").val(stream12ucl)
-  $("#validationCustom22").val(anomalySet)
+  // $("#validationCustom01").val(stream1lcl)
+  // $("#validationCustom02").val(stream1ucl)
+  // $("#validationCustom03").val(stream2lcl)
+  // $("#validationCustom04").val(stream2ucl)
+  // $("#validationCustom05").val(stream3lcl)
+  // $("#validationCustom06").val(stream3ucl)
+  // $("#validationCustom07").val(stream10lcl)
+  // $("#validationCustom08").val(stream10ucl)
+  // $("#validationCustom09").val(stream11lcl)
+  // $("#validationCustom10").val(stream11ucl)
+  // $("#validationCustom11").val(stream12lcl)
+  // $("#validationCustom12").val(stream12ucl)
+  // $("#validationCustom22").val(anomalySet)
 
   var stream1 = {
     series: [
@@ -95,34 +95,34 @@ $(document).ready(function () {
         data: [[Date.now(), Math.floor(0.0)]],
       },
     ],
-    annotations: {
-      yaxis: [
-        {
-          y: 80,
-          borderColor: "#ff0e0e",
-          label: {
-            borderColor: "#ff0e0e",
-            style: {
-              color: "#fff",
-              background: "#ff0e0e",
-            },
-            text: "UCL @ " + stream1ucl,
-          },
-        },
-        {
-          y: 20,
-          borderColor: "#00008b",
-          label: {
-            borderColor: "#00008b",
-            style: {
-              color: "#fff",
-              background: "#00008b",
-            },
-            text: "LCL @ " + stream1lcl,
-          },
-        },
-      ],
-    },
+    // annotations: {
+    //   yaxis: [
+    //     {
+    //       y: 80,
+    //       borderColor: "#ff0e0e",
+    //       label: {
+    //         borderColor: "#ff0e0e",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#ff0e0e",
+    //         },
+    //         text: "UCL @ " + stream1ucl,
+    //       },
+    //     },
+    //     {
+    //       y: 20,
+    //       borderColor: "#00008b",
+    //       label: {
+    //         borderColor: "#00008b",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#00008b",
+    //         },
+    //         text: "LCL @ " + stream1lcl,
+    //       },
+    //     },
+    //   ],
+    // },
     chart: {
       id: "realtime",
       height: 250,
@@ -189,34 +189,34 @@ $(document).ready(function () {
         data: [[Date.now(), Math.floor(0.0)]],
       },
     ],
-    annotations: {
-      yaxis: [
-        {
-          y: 80,
-          borderColor: "#ff0e0e",
-          label: {
-            borderColor: "#ff0e0e",
-            style: {
-              color: "#fff",
-              background: "#ff0e0e",
-            },
-            text: "UCL @ " + stream2ucl,
-          },
-        },
-        {
-          y: 20,
-          borderColor: "#00008b",
-          label: {
-            borderColor: "#00008b",
-            style: {
-              color: "#fff",
-              background: "#00008b",
-            },
-            text: "LCL @ " + stream2lcl,
-          },
-        },
-      ],
-    },
+    // annotations: {
+    //   yaxis: [
+    //     {
+    //       y: 80,
+    //       borderColor: "#ff0e0e",
+    //       label: {
+    //         borderColor: "#ff0e0e",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#ff0e0e",
+    //         },
+    //         text: "UCL @ " + stream2ucl,
+    //       },
+    //     },
+    //     {
+    //       y: 20,
+    //       borderColor: "#00008b",
+    //       label: {
+    //         borderColor: "#00008b",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#00008b",
+    //         },
+    //         text: "LCL @ " + stream2lcl,
+    //       },
+    //     },
+    //   ],
+    // },
     chart: {
       id: "realtime",
       height: 250,
@@ -283,34 +283,34 @@ $(document).ready(function () {
         data: [[Date.now(), Math.floor(0.0)]],
       },
     ],
-    annotations: {
-      yaxis: [
-        {
-          y: 80,
-          borderColor: "#ff0e0e",
-          label: {
-            borderColor: "#ff0e0e",
-            style: {
-              color: "#fff",
-              background: "#ff0e0e",
-            },
-            text: "UCL @ " + stream3ucl,
-          },
-        },
-        {
-          y: 20,
-          borderColor: "#00008b",
-          label: {
-            borderColor: "#00008b",
-            style: {
-              color: "#fff",
-              background: "#00008b",
-            },
-            text: "LCL @ " + stream3lcl,
-          },
-        },
-      ],
-    },
+    // annotations: {
+    //   yaxis: [
+    //     {
+    //       y: 80,
+    //       borderColor: "#ff0e0e",
+    //       label: {
+    //         borderColor: "#ff0e0e",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#ff0e0e",
+    //         },
+    //         text: "UCL @ " + stream3ucl,
+    //       },
+    //     },
+    //     {
+    //       y: 20,
+    //       borderColor: "#00008b",
+    //       label: {
+    //         borderColor: "#00008b",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#00008b",
+    //         },
+    //         text: "LCL @ " + stream3lcl,
+    //       },
+    //     },
+    //   ],
+    // },
     chart: {
       id: "realtime",
       height: 250,
@@ -377,34 +377,34 @@ $(document).ready(function () {
         data: [[Date.now(), Math.floor(0.0)]],
       },
     ],
-    annotations: {
-      yaxis: [
-        {
-          y: 80,
-          borderColor: "#ff0e0e",
-          label: {
-            borderColor: "#ff0e0e",
-            style: {
-              color: "#fff",
-              background: "#ff0e0e",
-            },
-            text: "UCL @ " + stream10ucl,
-          },
-        },
-        {
-          y: 20,
-          borderColor: "#00008b",
-          label: {
-            borderColor: "#00008b",
-            style: {
-              color: "#fff",
-              background: "#00008b",
-            },
-            text: "LCL @ " + stream10lcl,
-          },
-        },
-      ],
-    },
+    // annotations: {
+    //   yaxis: [
+    //     {
+    //       y: 80,
+    //       borderColor: "#ff0e0e",
+    //       label: {
+    //         borderColor: "#ff0e0e",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#ff0e0e",
+    //         },
+    //         text: "UCL @ " + stream10ucl,
+    //       },
+    //     },
+    //     {
+    //       y: 20,
+    //       borderColor: "#00008b",
+    //       label: {
+    //         borderColor: "#00008b",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#00008b",
+    //         },
+    //         text: "LCL @ " + stream10lcl,
+    //       },
+    //     },
+    //   ],
+    // },
     chart: {
       id: "realtime",
       height: 250,
@@ -471,34 +471,34 @@ $(document).ready(function () {
         data: [[Date.now(), Math.floor(0.0)]],
       },
     ],
-    annotations: {
-      yaxis: [
-        {
-          y: 80,
-          borderColor: "#ff0e0e",
-          label: {
-            borderColor: "#ff0e0e",
-            style: {
-              color: "#fff",
-              background: "#ff0e0e",
-            },
-            text: "UCL @ " + stream11ucl,
-          },
-        },
-        {
-          y: 20,
-          borderColor: "#00008b",
-          label: {
-            borderColor: "#00008b",
-            style: {
-              color: "#fff",
-              background: "#00008b",
-            },
-            text: "LCL @ " + stream11lcl,
-          },
-        },
-      ],
-    },
+    // annotations: {
+    //   yaxis: [
+    //     {
+    //       y: 80,
+    //       borderColor: "#ff0e0e",
+    //       label: {
+    //         borderColor: "#ff0e0e",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#ff0e0e",
+    //         },
+    //         text: "UCL @ " + stream11ucl,
+    //       },
+    //     },
+    //     {
+    //       y: 20,
+    //       borderColor: "#00008b",
+    //       label: {
+    //         borderColor: "#00008b",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#00008b",
+    //         },
+    //         text: "LCL @ " + stream11lcl,
+    //       },
+    //     },
+    //   ],
+    // },
     chart: {
       id: "realtime",
       height: 250,
@@ -565,34 +565,34 @@ $(document).ready(function () {
         data: [[Date.now(), Math.floor(0.0)]],
       },
     ],
-    annotations: {
-      yaxis: [
-        {
-          y: 80,
-          borderColor: "#ff0e0e",
-          label: {
-            borderColor: "#ff0e0e",
-            style: {
-              color: "#fff",
-              background: "#ff0e0e",
-            },
-            text: "UCL @ " + stream12ucl,
-          },
-        },
-        {
-          y: 20,
-          borderColor: "#00008b",
-          label: {
-            borderColor: "#00008b",
-            style: {
-              color: "#fff",
-              background: "#00008b",
-            },
-            text: "LCL @ " + stream12lcl,
-          },
-        },
-      ],
-    },
+    // annotations: {
+    //   yaxis: [
+    //     {
+    //       y: 80,
+    //       borderColor: "#ff0e0e",
+    //       label: {
+    //         borderColor: "#ff0e0e",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#ff0e0e",
+    //         },
+    //         text: "UCL @ " + stream12ucl,
+    //       },
+    //     },
+    //     {
+    //       y: 20,
+    //       borderColor: "#00008b",
+    //       label: {
+    //         borderColor: "#00008b",
+    //         style: {
+    //           color: "#fff",
+    //           background: "#00008b",
+    //         },
+    //         text: "LCL @ " + stream12lcl,
+    //       },
+    //     },
+    //   ],
+    // },
     chart: {
       id: "realtime",
       height: 250,
@@ -980,137 +980,137 @@ $(document).ready(function () {
   // )
   // anomalyChart19.render()
 
-  $("#stream1").submit(async (e) => {
-    e.preventDefault()
-    let obj = {
-      anomaly_score: 4.1,
-      id: 1,
-      kpi_name: "WET_OVEN_RH",
-      lcl: $("#validationCustom01").val(),
-      line: "A01",
-      ucl: $("#validationCustom02").val(),
-    }
-    await fetch("http://13.229.127.60:5000/feature/1", {
-      method: "PUT",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Access-Control-Request-Headers": "*",
-        "Access-Control-Request-Method": "*",
-      },
-      body: JSON.stringify(obj),
-    })
-  })
+  // $("#stream1").submit(async (e) => {
+  //   e.preventDefault()
+  //   let obj = {
+  //     anomaly_score: 4.1,
+  //     id: 1,
+  //     kpi_name: "WET_OVEN_RH",
+  //     lcl: $("#validationCustom01").val(),
+  //     line: "A01",
+  //     ucl: $("#validationCustom02").val(),
+  //   }
+  //   await fetch("http://13.229.127.60:5000/feature/1", {
+  //     method: "PUT",
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Content-Type": "application/json",
+  //       "Access-Control-Request-Headers": "*",
+  //       "Access-Control-Request-Method": "*",
+  //     },
+  //     body: JSON.stringify(obj),
+  //   })
+  // })
 
-  $("#stream2").submit(async (e) => {
-    e.preventDefault()
-    let obj = {
-      anomaly_score: 4.1,
-      id: 2,
-      kpi_name: "WET_OVEN_RH_2",
-      lcl: $("#validationCustom03").val(),
-      line: "A01",
-      ucl: $("#validationCustom04").val(),
-    }
-    await fetch("http://13.229.127.60:5000/feature/2", {
-      method: "PUT",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Access-Control-Request-Headers": "*",
-        "Access-Control-Request-Method": "*",
-      },
-      body: JSON.stringify(obj),
-    })
-  })
+  // $("#stream2").submit(async (e) => {
+  //   e.preventDefault()
+  //   let obj = {
+  //     anomaly_score: 4.1,
+  //     id: 2,
+  //     kpi_name: "WET_OVEN_RH_2",
+  //     lcl: $("#validationCustom03").val(),
+  //     line: "A01",
+  //     ucl: $("#validationCustom04").val(),
+  //   }
+  //   await fetch("http://13.229.127.60:5000/feature/2", {
+  //     method: "PUT",
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Content-Type": "application/json",
+  //       "Access-Control-Request-Headers": "*",
+  //       "Access-Control-Request-Method": "*",
+  //     },
+  //     body: JSON.stringify(obj),
+  //   })
+  // })
 
-  $("#stream3").submit((e) => {
-    e.preventDefault()
-    let obj = {
-      anomaly_score: 4.1,
-      id: 3,
-      kpi_name: "LATEX_TANK_1_SIDE_B",
-      lcl: $("#validationCustom05").val(),
-      line: "A01",
-      ucl: $("#validationCustom06").val(),
-    }
-    fetch("http://13.229.127.60:5000/feature/3", {
-      method: "PUT",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Access-Control-Request-Headers": "*",
-        "Access-Control-Request-Method": "*",
-      },
-      body: JSON.stringify(obj),
-    })
-  })
+  // $("#stream3").submit((e) => {
+  //   e.preventDefault()
+  //   let obj = {
+  //     anomaly_score: 4.1,
+  //     id: 3,
+  //     kpi_name: "LATEX_TANK_1_SIDE_B",
+  //     lcl: $("#validationCustom05").val(),
+  //     line: "A01",
+  //     ucl: $("#validationCustom06").val(),
+  //   }
+  //   fetch("http://13.229.127.60:5000/feature/3", {
+  //     method: "PUT",
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Content-Type": "application/json",
+  //       "Access-Control-Request-Headers": "*",
+  //       "Access-Control-Request-Method": "*",
+  //     },
+  //     body: JSON.stringify(obj),
+  //   })
+  // })
 
-  $("#stream10").submit((e) => {
-    e.preventDefault()
-    let obj = {
-      anomaly_score: 4.1,
-      id: 4,
-      kpi_name: "WET_OVEN_RH",
-      lcl: $("#validationCustom07").val(),
-      line: "A02",
-      ucl: $("#validationCustom08").val(),
-    }
-    fetch("http://13.229.127.60:5000/feature/4", {
-      method: "PUT",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Access-Control-Request-Headers": "*",
-        "Access-Control-Request-Method": "*",
-      },
-      body: JSON.stringify(obj),
-    })
-  })
+  // $("#stream10").submit((e) => {
+  //   e.preventDefault()
+  //   let obj = {
+  //     anomaly_score: 4.1,
+  //     id: 4,
+  //     kpi_name: "WET_OVEN_RH",
+  //     lcl: $("#validationCustom07").val(),
+  //     line: "A02",
+  //     ucl: $("#validationCustom08").val(),
+  //   }
+  //   fetch("http://13.229.127.60:5000/feature/4", {
+  //     method: "PUT",
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Content-Type": "application/json",
+  //       "Access-Control-Request-Headers": "*",
+  //       "Access-Control-Request-Method": "*",
+  //     },
+  //     body: JSON.stringify(obj),
+  //   })
+  // })
 
-  $("#stream11").submit((e) => {
-    e.preventDefault()
-    let obj = {
-      anomaly_score: 4.1,
-      id: 5,
-      kpi_name: "WET_OVEN_RH_2",
-      lcl: $("#validationCustom09").val(),
-      line: "A02",
-      ucl: $("#validationCustom10").val(),
-    }
-    fetch("http://13.229.127.60:5000/feature/5", {
-      method: "PUT",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Access-Control-Request-Headers": "*",
-        "Access-Control-Request-Method": "*",
-      },
-      body: JSON.stringify(obj),
-    })
-  })
+  // $("#stream11").submit((e) => {
+  //   e.preventDefault()
+  //   let obj = {
+  //     anomaly_score: 4.1,
+  //     id: 5,
+  //     kpi_name: "WET_OVEN_RH_2",
+  //     lcl: $("#validationCustom09").val(),
+  //     line: "A02",
+  //     ucl: $("#validationCustom10").val(),
+  //   }
+  //   fetch("http://13.229.127.60:5000/feature/5", {
+  //     method: "PUT",
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Content-Type": "application/json",
+  //       "Access-Control-Request-Headers": "*",
+  //       "Access-Control-Request-Method": "*",
+  //     },
+  //     body: JSON.stringify(obj),
+  //   })
+  // })
 
-  $("#stream12").submit((e) => {
-    e.preventDefault()
-    let obj = {
-      anomaly_score: 4.1,
-      id: 6,
-      kpi_name: "LATEX_TANK_1_SIDE_B",
-      lcl: $("#validationCustom11").val(),
-      line: "A02",
-      ucl: $("#validationCustom12").val(),
-    }
-    fetch("http://13.229.127.60:5000/feature/6", {
-      method: "PUT",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Access-Control-Request-Headers": "*",
-        "Access-Control-Request-Method": "*",
-      },
-      body: JSON.stringify(obj),
-    })
-  })
+  // $("#stream12").submit((e) => {
+  //   e.preventDefault()
+  //   let obj = {
+  //     anomaly_score: 4.1,
+  //     id: 6,
+  //     kpi_name: "LATEX_TANK_1_SIDE_B",
+  //     lcl: $("#validationCustom11").val(),
+  //     line: "A02",
+  //     ucl: $("#validationCustom12").val(),
+  //   }
+  //   fetch("http://13.229.127.60:5000/feature/6", {
+  //     method: "PUT",
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Content-Type": "application/json",
+  //       "Access-Control-Request-Headers": "*",
+  //       "Access-Control-Request-Method": "*",
+  //     },
+  //     body: JSON.stringify(obj),
+  //   })
+  // })
 
   $("#anomaly_score").submit((e) => {
     e.preventDefault()
