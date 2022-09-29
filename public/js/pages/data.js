@@ -1151,8 +1151,8 @@ $(document).ready(function () {
   })
 
   function webSocketInvoke() {
-    var socket = io("http://localhost:3000")
-    // var socket = io(`${base_url}`)
+    // var socket = io("http://localhost:3000")
+    var socket = io(`${base_url}`)
 
     socket.on("event", async (value) => {
       console.log("values A1: ", value)
